@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Comb
+namespace Comb.Prototype
 {
     public class Link
     {

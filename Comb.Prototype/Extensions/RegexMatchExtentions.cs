@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Comb
+namespace Comb.Prototype
 {
     public static class RegexMatchExtentions
     {
