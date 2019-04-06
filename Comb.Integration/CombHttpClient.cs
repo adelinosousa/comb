@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Comb.Integration
 {
-    public class CombHttpClient : ICombHttpClient
+    internal class CombHttpClient : ICombHttpClient
     {
         private readonly HttpClient httpClient;
 
@@ -12,7 +12,7 @@ namespace Comb.Integration
             httpClient = new HttpClient();
         }
 
-        public async Task<string> FetchHtml(string url)
+        public async Task<string> FetchHtmlAsync(string url)
         {
             try
             {

@@ -7,6 +7,7 @@ namespace Comb.Integration
         public static IServiceCollection AddComb(this IServiceCollection services)
         {
             services.AddSingleton<ICombHttpClient, CombHttpClient>();
+            services.AddTransient<IComb, Comb>();
             return services;
         }
     }

@@ -4,6 +4,6 @@ namespace Comb
 {
     public interface ICombHttpClient
     {
-        Task<string> FetchHtml(string url);
+        Task<string> FetchHtmlAsync(string url);
     }
 }

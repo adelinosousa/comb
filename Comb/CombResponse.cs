@@ -8,6 +8,8 @@ namespace Comb
 
         public bool Success => Errors.Count == 0;
 
+        public ICombLink Result { get; set; }
+
         public CombResponse()
         {
             Errors = new List<string>();

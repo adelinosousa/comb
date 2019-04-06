@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Comb.Prototype
+namespace Comb
 {
     [Flags]
-    public enum LinkType
+    public enum CombLinkType
     {
         URL = 0,
         PNG = 1,
@@ -15,9 +15,9 @@ namespace Comb.Prototype
 
     public static class LinkTypes
     {
-        public static LinkType[] GetValues()
+        public static CombLinkType[] GetValues()
         {
-            return new[] { LinkType.PNG, LinkType.JPG, LinkType.CSS, LinkType.HTML };
+            return new[] { CombLinkType.PNG, CombLinkType.JPG, CombLinkType.CSS, CombLinkType.HTML };
         }
     }
 }
