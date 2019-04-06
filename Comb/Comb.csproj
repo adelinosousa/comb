@@ -47,8 +47,8 @@
     <Compile Include="CombResponse.cs" />
     <Compile Include="IComb.cs" />
     <Compile Include="ICombHttpClient.cs" />
-    <Compile Include="Models\ICombLink.cs" />
     <Compile Include="Models\CombLinkType.cs" />
+    <Compile Include="Models\ICombLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

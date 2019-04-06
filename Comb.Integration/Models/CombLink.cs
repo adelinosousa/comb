@@ -11,14 +11,6 @@ namespace Comb.Integration
 
         private Dictionary<string, CombLink> Children { get; }
 
-        public ICombLink[] All
-        {
-            get
-            {
-                return Links.Values.OfType<ICombLink>().ToArray();
-            }
-        }
-
         public ICombLink[] Descendents
         {
             get
@@ -34,7 +26,11 @@ namespace Comb.Integration
                 if (parent == null) return true;
 
                 if (Value.StartsWith(parent.Value, StringComparison.InvariantCultureIgnoreCase)
-                    && !Value.Equals(parent.Value, StringComparison.InvariantCultureIgnoreCase)) return true;
+                    && !Value.Equals(parent.Value, StringComparison.InvariantCultureIgnoreCase)
+                    && Type == CombLinkType.URL)
+                {
+                    return true;
+                }
 
                 return false;
             }
@@ -68,6 +64,16 @@ namespace Comb.Integration
             // Core 2.2 Descendents.TryAdd(key, value);
             Children.Add(key, value);
             return true;
+        }
+
+        public ICombLink[] All()
+        {
+            return Links.Values.OfType<ICombLink>().ToArray();
+        }
+
+        public ICombLink[] All(CombLinkType linkType)
+        {
+            return Links.Values.Where(x => linkType.HasFlag(x.Type)).OfType<ICombLink>().ToArray();
         }
     }
 }

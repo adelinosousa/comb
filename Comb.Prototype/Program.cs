@@ -1,6 +1,7 @@
 ﻿using Comb.Integration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -37,7 +38,7 @@ namespace Comb.Prototype
 
         static void Print(ICombLink link)
         {
-            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}, Links {link.All.Length}");
+            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}, Links {link.All().Length}, IMG {link.All(CombLinkType.IMG).Length}");
             Console.WriteLine("------------------------------------------------------------------------------------------------------");
             Console.WriteLine(string.Format("| URL ({0,64}) | Type | Descendents ({1,4}) |", link.Value, link.Descendents.Length));
             Console.WriteLine("------------------------------------------------------------------------------------------------------");

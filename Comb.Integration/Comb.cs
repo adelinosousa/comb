@@ -63,7 +63,7 @@ namespace Comb.Integration
                 {
                     var link = match.ToLink(urlDomain, destination);
 
-                    if (link.IsDescendent && link.Type == CombLinkType.URL && depth <= maxDepth)
+                    if (link.IsDescendent && depth <= maxDepth)
                     {
                         link.SetCombed();
                         tasks.Add(Brush(link, urlDomain, maxDepth, depth));

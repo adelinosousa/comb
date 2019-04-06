@@ -5,12 +5,14 @@ namespace Comb
     [Flags]
     public enum CombLinkType
     {
-        URL = 0,
-        PNG = 1,
-        JPG = 2,
-        IMG = PNG | JPG,
-        CSS = 4,
-        HTML = 8
+        URL = 1,
+        PNG = 2,
+        JPG = 4,
+        CSS = 8,
+        JS = 16,
+        MP4 = 32,
+        HTML = 64,
+        IMG = PNG | JPG
     }
 
     public static class LinkTypes

@@ -39,7 +39,11 @@ namespace Comb.Integration
             {
                 foreach (var linkType in LinkTypes.GetValues())
                 {
-                    if (Value.EndsWith(linkType.ToString(), StringComparison.InvariantCultureIgnoreCase)) type = linkType;
+                    if (Value.EndsWith(linkType.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        type = linkType;
+                        return type.Value;
+                    }
                 }
 
                 type = CombLinkType.URL;
