@@ -48,9 +48,7 @@ namespace Comb.Integration
 
         private async Task Brush(CombLink destination, string urlDomain, int maxDepth = 1, int depth = 0)
         {
-            destination.Links.TryGetValue(destination.Value, out CombLink existingLink);
-
-            if (existingLink != null && existingLink.Combed) return;
+            if (destination.Combed) return;
 
             await Task.Run(async () =>
             {
@@ -67,7 +65,7 @@ namespace Comb.Integration
 
                     if (link.IsDescendent && link.Type == CombLinkType.URL && depth <= maxDepth)
                     {
-                        link.Combed = true;
+                        link.SetCombed();
                         tasks.Add(Brush(link, urlDomain, maxDepth, depth));
                     }
 
