@@ -7,7 +7,7 @@ namespace Comb.Integration
 {
     public class Comb : IComb
     {
-        private const string pattern = @"href=""([^""#\+]*)""";
+        private const string pattern = @"(href=\s?""|src=\s?""|file:\s?"")([^""#\+]*)""";
         private Regex regex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         private readonly ICombHttpClient httpClient;
@@ -25,7 +25,7 @@ namespace Comb.Integration
             var urlDomain = GetUrlDomain(request);
             var link = new CombLink(request.Url, urlDomain);
 
-            await Brush(link, urlDomain);
+            await Brush(link, urlDomain, request.Depth);
 
             response.Result = link;
             return response;

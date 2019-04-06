@@ -37,16 +37,24 @@ namespace Comb.Integration
         {
             if (type == null)
             {
+                type = CombLinkType.URL;
+
+                var multiple = false;
                 foreach (var linkType in LinkTypes.GetValues())
                 {
-                    if (Value.EndsWith(linkType.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    if (Value.EndsWith(linkType.ToString(), StringComparison.InvariantCultureIgnoreCase)
+                        || Value.ToLowerInvariant().Contains($".{linkType.ToString().ToLowerInvariant()}"))
                     {
-                        type = linkType;
-                        return type.Value;
+                        if (multiple)
+                        {
+                            type |= linkType;
+                        }
+                        else
+                        {
+                            type = linkType;
+                        }
                     }
                 }
-
-                type = CombLinkType.URL;
             }
 
             return type.Value;
@@ -54,7 +62,7 @@ namespace Comb.Integration
 
         private string Clean(string value)
         {
-            const string regex = @"(href=|src=|"")";
+            const string regex = @"(href=|src=|file:|"")";
 
             value = Regex.Replace(value, regex, string.Empty);
 
