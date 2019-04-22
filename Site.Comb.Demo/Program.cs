@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Site.Comb;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
-namespace Comb.Prototype
+namespace Site.Comb.Demo
 {
     class Program
     {
@@ -45,8 +44,8 @@ namespace Comb.Prototype
             foreach (var child in link.Descendents.Where(x => x.Type == CombLinkType.URL))
             {
                 Console.WriteLine(string.Format("| {0,70} | {1, 8} | {2,18} |",
-                    child.Value.Length > 70 ? child.Value.Substring(child.Value.Length -70) : child.Value, 
-                    child.Type, 
+                    child.Value.Length > 70 ? child.Value.Substring(child.Value.Length - 70) : child.Value,
+                    child.Type,
                     child.Descendents.Length));
             }
             Console.WriteLine("------------------------------------------ IMG ---------------------------------------------------------------");
