@@ -1,4 +1,4 @@
-﻿namespace Comb
+﻿namespace Site.Comb
 {
     public interface ICombLink
     {

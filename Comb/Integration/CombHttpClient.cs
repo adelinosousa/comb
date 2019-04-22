@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Comb.Integration
+namespace Site.Comb
 {
     internal class CombHttpClient : ICombHttpClient
     {

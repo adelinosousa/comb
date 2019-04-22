@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>Comb.Prototype</AssemblyName>
-    <RootNamespace>Comb.Prototype</RootNamespace>
+    <AssemblyName>Site.Comb.Prototype</AssemblyName>
+    <RootNamespace>Site.Comb.Prototype</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Comb.Integration\Comb.Integration.csproj" />
+    <ProjectReference Include="..\Comb\Site.Comb.csproj" />
   </ItemGroup>
 
 </Project>

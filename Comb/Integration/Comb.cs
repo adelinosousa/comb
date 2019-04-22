@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Comb.Integration
+namespace Site.Comb
 {
     public class Comb : IComb
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Comb.Integration
+namespace Site.Comb
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddComb(this IServiceCollection services)
+        public static IServiceCollection AddSiteComb(this IServiceCollection services)
         {
             services.AddSingleton<ICombHttpClient, CombHttpClient>();
             services.AddTransient<IComb, Comb>();

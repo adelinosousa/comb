@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 
-namespace Comb.Integration
+namespace Site.Comb
 {
     public class Link
     {

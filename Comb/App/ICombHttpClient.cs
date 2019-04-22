@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Comb
+namespace Site.Comb
 {
     public interface ICombHttpClient
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Comb
+namespace Site.Comb
 {
     public class CombResponse
     {

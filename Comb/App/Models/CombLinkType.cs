@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Comb
+namespace Site.Comb
 {
     [Flags]
     public enum CombLinkType

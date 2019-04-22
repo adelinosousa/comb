@@ -1,5 +1,5 @@
-﻿using Comb.Integration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Site.Comb;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace Comb.Prototype
 
         static Program()
         {
-            serviceProvider = new ServiceCollection().AddComb().BuildServiceProvider();
+            serviceProvider = new ServiceCollection().AddSiteComb().BuildServiceProvider();
         }
 
         static void Main(string[] args)
