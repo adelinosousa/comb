@@ -49,12 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\CombRequest.cs" />
-    <Compile Include="App\CombResponse.cs" />
-    <Compile Include="App\IComb.cs" />
-    <Compile Include="App\ICombHttpClient.cs" />
-    <Compile Include="Integration\Comb.cs" />
-    <Compile Include="Integration\CombHttpClient.cs" />
+    <Compile Include="App\UseCase\CombRequest.cs" />
+    <Compile Include="App\UseCase\CombResponse.cs" />
+    <Compile Include="App\UseCase\IComb.cs" />
+    <Compile Include="App\UseCase\ICombHttpClient.cs" />
+    <Compile Include="Integration\UseCase\Comb.cs" />
+    <Compile Include="Integration\UseCase\CombHttpClient.cs" />
     <Compile Include="Integration\Extensions\RegexMatchExtentions.cs" />
     <Compile Include="Integration\Extensions\ServiceCollectionExtensions.cs" />
     <Compile Include="Integration\Models\CombLink.cs" />
