@@ -7,8 +7,8 @@
     <ProjectGuid>{8506F8BE-D084-4282-861E-E4B255DAFF09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Comb</RootNamespace>
-    <AssemblyName>Comb</AssemblyName>
+    <RootNamespace>Site.Comb</RootNamespace>
+    <AssemblyName>Site.Comb</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -43,14 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CombRequest.cs" />
-    <Compile Include="CombResponse.cs" />
-    <Compile Include="IComb.cs" />
-    <Compile Include="ICombHttpClient.cs" />
-    <Compile Include="Models\CombLinkType.cs" />
-    <Compile Include="Models\ICombLink.cs" />
+    <Compile Include="App\CombRequest.cs" />
+    <Compile Include="App\CombResponse.cs" />
+    <Compile Include="App\IComb.cs" />
+    <Compile Include="App\ICombHttpClient.cs" />
+    <Compile Include="Integration\Comb.cs" />
+    <Compile Include="Integration\CombHttpClient.cs" />
+    <Compile Include="Integration\Extensions\RegexMatchExtentions.cs" />
+    <Compile Include="Integration\Extensions\ServiceCollectionExtensions.cs" />
+    <Compile Include="Integration\Models\CombLink.cs" />
+    <Compile Include="Integration\Models\Link.cs" />
+    <Compile Include="App\Models\CombLinkType.cs" />
+    <Compile Include="App\Models\ICombLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Site.Comb.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

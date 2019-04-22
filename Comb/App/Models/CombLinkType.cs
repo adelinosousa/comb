@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Comb
+namespace Site.Comb
 {
     [Flags]
     public enum CombLinkType
@@ -19,7 +19,7 @@ namespace Comb
     {
         public static CombLinkType[] GetValues()
         {
-            return new[] { CombLinkType.PNG, CombLinkType.JPG, CombLinkType.CSS, CombLinkType.HTML };
+            return new[] { CombLinkType.PNG, CombLinkType.JPG, CombLinkType.CSS, CombLinkType.HTML, CombLinkType.MP4 };
         }
     }
 }
