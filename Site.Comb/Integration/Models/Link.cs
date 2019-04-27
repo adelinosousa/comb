@@ -62,9 +62,7 @@ namespace Site.Comb
 
         private string Clean(string value)
         {
-            const string regex = @"(href=|src=|file:|"")";
-
-            value = Regex.Replace(value, regex, string.Empty);
+            value = Regex.Replace(value, RegexPatterns.Filter, string.Empty, RegexOptions.IgnoreCase);
 
             if (value.EndsWith("/"))
             {
@@ -78,11 +76,13 @@ namespace Site.Comb
         {
             if (value.StartsWith("//"))
             {
-                return $"{Uri.UriSchemeHttp}:{value}";
+                return $"{new Uri(domain).Scheme}:{value}";
             }
 
             if (!value.StartsWith(Uri.UriSchemeHttp) && !value.StartsWith(domain, StringComparison.InvariantCultureIgnoreCase))
             {
+                if (!value.StartsWith("/")) value = $"/{value}";
+
                 return $"{domain}{value}";
             }
 

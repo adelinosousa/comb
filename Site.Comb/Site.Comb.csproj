@@ -53,6 +53,7 @@
     <Compile Include="App\UseCase\CombResponse.cs" />
     <Compile Include="App\UseCase\IComb.cs" />
     <Compile Include="App\UseCase\ICombHttpClient.cs" />
+    <Compile Include="App\UseCase\RegexPatterns.cs" />
     <Compile Include="Integration\UseCase\Comb.cs" />
     <Compile Include="Integration\UseCase\CombHttpClient.cs" />
     <Compile Include="Integration\Extensions\RegexMatchExtentions.cs" />
