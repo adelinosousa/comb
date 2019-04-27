@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Site.Comb
 {
@@ -6,20 +7,37 @@ namespace Site.Comb
     public enum CombLinkType
     {
         URL = 1,
+        // Image
         PNG = 2,
         JPG = 4,
-        CSS = 8,
-        JS = 16,
-        MP4 = 32,
-        HTML = 64,
-        IMG = PNG | JPG
+        JPEG = 8,
+        TIF = 16,
+        TIFF = 32,
+        BMP = 64,
+        GIF = 128,
+        // Video
+        MP4 = 256,
+        FLV = 512,
+        MPG = 1024,
+        MPEG = 2048,
+        // Other
+        CSS = 4096,
+        JS = 8192,
+        HTML = 16384,
+        // Group
+        IMG = PNG | JPG | JPEG | TIF | TIFF | BMP | GIF,
+        VIDEO = MP4 | FLV | MPG | MPEG,
+        OTHER = CSS | JS | HTML
     }
 
     public static class LinkTypes
     {
         public static CombLinkType[] GetValues()
         {
-            return new[] { CombLinkType.PNG, CombLinkType.JPG, CombLinkType.CSS, CombLinkType.HTML, CombLinkType.MP4 };
+            return Enum.GetValues(typeof(CombLinkType))
+                .Cast<CombLinkType>()
+                .Except(new CombLinkType[] { CombLinkType.IMG })
+                .ToArray();
         }
     }
 }

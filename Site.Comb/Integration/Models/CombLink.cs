@@ -55,15 +55,15 @@ namespace Site.Comb
             Children = new Dictionary<string, CombLink>();
         }
 
-        public bool AddDescendent(string key, CombLink value)
+        public void AddDescendent(string key, CombLink value)
         {
-            if (!Links.TryAdd(key, value)) return false;
+            Links.TryAdd(key, value);
 
-            if (Children.ContainsKey(key)) return false;
-
-            // Core 2.2 Descendents.TryAdd(key, value);
-            Children.Add(key, value);
-            return true;
+            if (!Children.ContainsKey(key))
+            {
+                // Core 2.2 Descendents.TryAdd(key, value);
+                Children.Add(key, value);
+            }
         }
 
         public ICombLink[] All()

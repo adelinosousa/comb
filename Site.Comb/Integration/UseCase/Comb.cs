@@ -7,8 +7,7 @@ namespace Site.Comb
 {
     public class Comb : IComb
     {
-        private const string pattern = @"(href=\s?""|src=\s?""|file:\s?"")([^""#\+]*)""";
-        private Regex regex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private Regex regex = new Regex(RegexPatterns.Search, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         private readonly ICombHttpClient httpClient;
 
@@ -33,7 +32,17 @@ namespace Site.Comb
 
         private CombResponse Validate(CombRequest request, CombResponse response)
         {
-            if (string.IsNullOrEmpty(request.Url) || !Uri.IsWellFormedUriString(request.Url, UriKind.RelativeOrAbsolute))
+            try
+            {
+                if (string.IsNullOrEmpty(request.Url) 
+                    || !request.Url.StartsWith(Uri.UriSchemeHttp)
+                    || !Uri.IsWellFormedUriString(request.Url, UriKind.RelativeOrAbsolute) 
+                    || string.IsNullOrEmpty(GetUrlDomain(request)))
+                {
+                    response.Errors.Add("Invalid Url");
+                }
+            }
+            catch
             {
                 response.Errors.Add("Invalid Url");
             }
