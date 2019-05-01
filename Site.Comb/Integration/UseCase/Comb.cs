@@ -34,9 +34,9 @@ namespace Site.Comb
         {
             try
             {
-                if (string.IsNullOrEmpty(request.Url) 
+                if (string.IsNullOrEmpty(request.Url)
                     || !request.Url.StartsWith(Uri.UriSchemeHttp)
-                    || !Uri.IsWellFormedUriString(request.Url, UriKind.RelativeOrAbsolute) 
+                    || !Uri.IsWellFormedUriString(request.Url, UriKind.RelativeOrAbsolute)
                     || string.IsNullOrEmpty(GetUrlDomain(request)))
                 {
                     response.Errors.Add("Invalid Url");
