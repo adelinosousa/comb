@@ -36,7 +36,7 @@ namespace Site.Comb
         {
             return Enum.GetValues(typeof(CombLinkType))
                 .Cast<CombLinkType>()
-                .Except(new CombLinkType[] { CombLinkType.IMG })
+                .Except(new CombLinkType[] { CombLinkType.IMG, CombLinkType.VIDEO, CombLinkType.OTHER })
                 .ToArray();
         }
     }
