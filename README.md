@@ -3,9 +3,6 @@
 # Comb
 Simple C# web crawler. Discover website resources and sitemap. Supports `.net framework`, `.net standard` and `.net core`.
 
-## Demo
-Coming soon!!!
-
 ## How to use
 
 ### Setup
@@ -14,7 +11,7 @@ Use package-manager to install
 ```csharp
 Install-Package Site.Comb
 ```
-In your start up class, during the service configuration, invoke `services.AddSiteComb();`. This will setup the required dependencies this tool needs. Example:
+In your start up class, during the service configuration, invoke `services.AddSiteComb();`. This will setup the required dependencies this tool needs.
 ```csharp
 using Site.Comb;
 
@@ -29,7 +26,7 @@ public class Startup
 
 ### Usage
 
-Resolve the `IComb` dependency and invoke `.Brush()` with `CombRequest`. Example:
+Resolve the `IComb` dependency and invoke `.Brush()` with `CombRequest`.
 ```csharp
 [Route("api/[controller]")]
 [ApiController]
@@ -61,11 +58,11 @@ public class SampleController : ControllerBase
 | Url      | Target url to inspect and comb resources for |
 | Depth*   | Depth level, how **deep** to comb for. Default is set to 1 |
 
-**NOTE*** the bigger the interger, the longer it will take for the process to complete.
+**NOTE*** the bigger the integer, the longer it will take for the process to complete.
 
 ### Querying
 
-To access the first level of descendants like this:
+Access the first level of descendants like this
 ```csharp
 var descendants = response.Result.Descendants;
 foreach (var descendant in descendants)
@@ -75,7 +72,7 @@ foreach (var descendant in descendants)
 }
 ```
 
-You can filter all **links** found by their type. Example:
+or filter all **links** found based on their type
 ```csharp
 var images = response.Result.All(CombLinkType.IMG);
 ```
