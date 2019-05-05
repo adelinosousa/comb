@@ -4,7 +4,7 @@
 Simple C# web crawler
 
 ## Demo
-TODO
+Coming soon!!!
 
 ## How to use
 
@@ -63,8 +63,23 @@ public class SampleController : ControllerBase
 
 **NOTE*** the bigger the interger, the longer it will take for the process to complete.
 
-### Response filtering
-TODO
+### Response querying
+
+To access the first level of descendants like this:
+```csharp
+var descendants = response.Result.Descendants;
+foreach (var descendant in descendants)
+{
+    var descendantUrl = descendant.Value;
+    var children = descendant.Descendants;
+}
+```
+
+You can filter all **links** found by their type. Example:
+```csharp
+var images = response.Result.All(CombLinkType.IMG);
+```
+This will return all images found within the given target url. Supported types are `.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp` and `.gif`. You can filter by group type, such as `IMG`, or individually.
 
 ## Suggestions
 Contact me if you have any suggestions or improvements.
