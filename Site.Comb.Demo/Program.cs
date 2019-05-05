@@ -39,14 +39,14 @@ namespace Site.Comb.Demo
         {
             Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}, Links {link.All().Length}");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine(string.Format("| URL ({0,56}) |   Type   | Descendents ({1,4}) |", link.Value, link.Descendents.Length));
+            Console.WriteLine(string.Format("| URL ({0,56}) |   Type   | Descendents ({1,4}) |", link.Value, link.Descendants.Length));
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
-            foreach (var child in link.Descendents.Where(x => x.Type == CombLinkType.URL))
+            foreach (var child in link.Descendants.Where(x => x.Type == CombLinkType.URL))
             {
                 Console.WriteLine(string.Format("| {0,70} | {1, 8} | {2,18} |",
                     child.Value.Length > 70 ? child.Value.Substring(child.Value.Length - 70) : child.Value,
                     child.Type,
-                    child.Descendents.Length));
+                    child.Descendants.Length));
             }
             Console.WriteLine("------------------------------------------ IMG ---------------------------------------------------------------");
             foreach (var child in link.All(CombLinkType.IMG))
@@ -54,7 +54,7 @@ namespace Site.Comb.Demo
                 Console.WriteLine(string.Format("| {0,70} | {1, 8} | {2,18} |",
                     child.Value.Length > 70 ? child.Value.Substring(child.Value.Length - 70) : child.Value,
                     child.Type,
-                    child.Descendents.Length));
+                    child.Descendants.Length));
             }
             Console.WriteLine("------------------------------------------ MP4 ---------------------------------------------------------------");
             foreach (var child in link.All(CombLinkType.MP4))
@@ -62,7 +62,7 @@ namespace Site.Comb.Demo
                 Console.WriteLine(string.Format("| {0,70} | {1, 8} | {2,18} |",
                     child.Value.Length > 70 ? child.Value.Substring(child.Value.Length - 70) : child.Value,
                     child.Type,
-                    child.Descendents.Length));
+                    child.Descendants.Length));
             }
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------");
         }

@@ -11,7 +11,7 @@ namespace Site.Comb
 
         private Dictionary<string, CombLink> Children { get; }
 
-        public ICombLink[] Descendents
+        public ICombLink[] Descendants
         {
             get
             {

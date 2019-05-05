@@ -65,10 +65,10 @@ namespace Site.Comb.Tests
             Assert.AreEqual(response.Result.Value, url);
             Assert.AreEqual(response.Result.Type, CombLinkType.URL);
 
-            Assert.AreEqual(response.Result.Descendents.Count(), numberOfDescendents);
-            foreach (var descendent in response.Result.Descendents)
+            Assert.AreEqual(response.Result.Descendants.Count(), numberOfDescendents);
+            foreach (var descendent in response.Result.Descendants)
             {
-                Assert.AreEqual(descendent.Descendents.Count(), 0);
+                Assert.AreEqual(descendent.Descendants.Count(), 0);
             }
 
             Assert.AreEqual(response.Result.All(CombLinkType.IMG).Count(), numberOfImg);

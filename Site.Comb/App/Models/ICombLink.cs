@@ -6,7 +6,7 @@
 
         CombLinkType Type { get; }
 
-        ICombLink[] Descendents { get; }
+        ICombLink[] Descendants { get; }
 
         ICombLink[] All();
 

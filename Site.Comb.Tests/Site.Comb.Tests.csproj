@@ -67,12 +67,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Site.Comb\Site.Comb.csproj">
-      <Project>{8506f8be-d084-4282-861e-e4b255daff09}</Project>
-      <Name>Site.Comb</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="UseCase\TestCases\ImageTest.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -85,6 +79,12 @@
     <Content Include="UseCase\TestCases\OtherTest.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Site.Comb\Site.Comb.csproj">
+      <Project>{8506f8be-d084-4282-861e-e4b255daff09}</Project>
+      <Name>Site.Comb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
