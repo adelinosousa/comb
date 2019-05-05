@@ -54,7 +54,7 @@ public class SampleController : ControllerBase
 }
 ```
 
-### Request options
+### Options
 
 | Property | Description |
 |----------|-------------|
@@ -63,7 +63,7 @@ public class SampleController : ControllerBase
 
 **NOTE*** the bigger the interger, the longer it will take for the process to complete.
 
-### Response querying
+### Querying
 
 To access the first level of descendants like this:
 ```csharp
