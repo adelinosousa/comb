@@ -1,4 +1,4 @@
-[![Latest version](https://img.shields.io/nuget/v/Site.Comb.svg)](https://www.nuget.org/packages/Site.Comb)[![Build Status](https://dev.azure.com/lino-playroom/Comb/_apis/build/status/adelinosousa.comb?branchName=master)](https://dev.azure.com/lino-playroom/Comb/_build/latest?definitionId=1&branchName=master)[![Coverage Status](https://coveralls.io/repos/github/adelinosousa/comb/badge.svg?branch=master)](https://coveralls.io/github/adelinosousa/comb?branch=master)
+[![Build Status](https://dev.azure.com/lino-playroom/Comb/_apis/build/status/adelinosousa.comb?branchName=master)](https://dev.azure.com/lino-playroom/Comb/_build/latest?definitionId=1&branchName=master)[![Coverage Status](https://coveralls.io/repos/github/adelinosousa/comb/badge.svg?branch=master)](https://coveralls.io/github/adelinosousa/comb?branch=master)
 
 # Comb
 Simple C# web crawler. Discover website resources and sitemap. Supports `.net framework`, `.net standard` and `.net core`.
@@ -7,10 +7,11 @@ Simple C# web crawler. Discover website resources and sitemap. Supports `.net fr
 
 ### Setup
 
-Use package-manager to install
+Use package-manager to install [![Latest version](https://img.shields.io/nuget/v/Site.Comb.svg)](https://www.nuget.org/packages/Site.Comb)
 ```csharp
 Install-Package Site.Comb
 ```
+
 In your start up class, in the service configuration, invoke `services.AddSiteComb();`. This will setup the required dependencies this tool needs.
 ```csharp
 using Site.Comb;
