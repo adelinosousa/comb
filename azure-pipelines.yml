@@ -37,21 +37,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/coverage.xml'
-    mergeTestResults: true
-    buildPlatform: '$(buildPlatform)'
-    buildConfiguration: '$(buildConfiguration)'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/coverage.xml'
+    codeCoverageEnabled: true
 
 - task: CmdLine@2
   inputs:
     script: 'coveralls.net.exe --cobertura **/coverage.xml -r $(coverallsToken)'
-    workingDirectory: '**/packages/coveralls.io.1.4.2/tools/'
+    workingDirectory: 'packages/coveralls.io.1.4.2/tools'
