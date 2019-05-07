@@ -13,6 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  coverallsToken: 'uUMyVx1X4dm9VrjJYz2XQ8OkdKoQ34Fmi'
 
 steps:
 - task: NuGetToolInstaller@0
@@ -36,3 +37,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: 'NUnit'
+    testResultsFiles: 'coverage.xml'
+
+- task: CmdLine@2
+  inputs:
+    script: ./packages/coveralls.io.1.4.2/tools/coveralls.net.exe --opencover **/*coverage.xml -r $(coverallsToken)
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
