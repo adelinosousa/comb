@@ -11,7 +11,7 @@ Use package-manager to install
 ```csharp
 Install-Package Site.Comb
 ```
-In your start up class, during the service configuration, invoke `services.AddSiteComb();`. This will setup the required dependencies this tool needs.
+In your start up class, in the service configuration, invoke `services.AddSiteComb();`. This will setup the required dependencies this tool needs.
 ```csharp
 using Site.Comb;
 
