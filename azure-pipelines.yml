@@ -43,7 +43,13 @@ steps:
   displayName: 'test with coverage'
   workingDirectory: 'Site.Comb.Tests'
 
-- task: CmdLine@2
+- task: PublishCodeCoverageResults@1
+  displayName: 'publish coverage results'
   inputs:
-    script: 'coveralls.net.exe --cobertura **/coverage.xml -r $(coverallsToken)'
-    workingDirectory: 'packages/coveralls.io.1.4.2/tools'
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'coveralls.net.exe --cobertura **/coverage.xml -r $(coverallsToken)'
+#     workingDirectory: 'packages/coveralls.io.1.4.2/tools'
