@@ -40,16 +40,15 @@ steps:
 #     codeCoverageEnabled: true
 
 - script: dotnet test Site.Comb.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
-  displayName: 'test with coverage'
+  displayName: 'Generate test coverage'
   workingDirectory: 'Site.Comb.Tests'
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'publish coverage results'
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
-
-# - task: CmdLine@2
+# - task: PublishCodeCoverageResults@1
+#   displayName: 'publish coverage results'
 #   inputs:
-#     script: 'coveralls.net.exe --cobertura **/coverage.xml -r $(coverallsToken)'
-#     workingDirectory: 'packages/coveralls.io.1.4.2/tools'
+#     codeCoverageTool: 'cobertura'
+#     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
+
+- script: coveralls.net.exe --cobertura '../../../Site.Comb.Tests/coverage.cobertura.xml' -r $(coverallsToken)
+  displayName: 'Publish test coverage'
+  workingDirectory: 'packages/coveralls.io.1.4.2/tools'
