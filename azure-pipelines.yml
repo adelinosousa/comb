@@ -39,8 +39,9 @@ steps:
 #     configuration: '$(buildConfiguration)'
 #     codeCoverageEnabled: true
 
-- script: dotnet test $(System.DefaultWorkingDirectory)/**/Site.Comb.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+- script: dotnet test Site.Comb.Tests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
   displayName: 'test with coverage'
+  workingDirectory: 'Site.Comb.Tests'
 
 - task: CmdLine@2
   inputs:
